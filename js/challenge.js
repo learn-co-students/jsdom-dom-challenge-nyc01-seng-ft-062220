@@ -17,8 +17,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
 
     document.addEventListener("click", function(e) {
-
-
+        e.preventDefault()
 
         let counterValue = document.getElementById("counter")
         array.push(parseInt(counterValue.textContent))
@@ -41,7 +40,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
             parseInt(countValue)
 
-            console.log(array[-1])
 
             if (array[array.length - 1] === array[array.length - 2] ) {
                 likes += 1
@@ -54,5 +52,21 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
 
         }
+
+        const commentBox = document.getElementById("comment-input");
+        const commentHeader = document.getElementById("comment-header")
+
+        if (e.target.matches("#submit")) {
+
+            let commentObject = document.createElement("p")
+            commentObject.innerText = commentBox.value
+
+            commentHeader.append(commentObject)
+
+
+        }
+
+
     })
-    })
+
+})
