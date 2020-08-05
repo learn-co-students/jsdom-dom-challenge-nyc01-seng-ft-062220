@@ -23,7 +23,9 @@ function timerHandler() {
         } else {
             pauseButton.innerText = "pause";
             isPaused = false;
-            
+            minusButton.disabled = false;
+            plusButton.disabled = false;
+            document.querySelector("#heart").disabled = false;
         };
     });
     minusButton.addEventListener("click", function(){
