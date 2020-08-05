@@ -38,11 +38,13 @@ document.addEventListener('DOMContentLoaded', function(){
     submitButton.addEventListener('click', function(e){
         e.preventDefault()
         let inputText = document.getElementById('comment-input').value
-        let commentsDiv = document.getElementById('list')
-        let newComment = document.createElement('li')
-        newComment.innerText = inputText
-        commentsDiv.append(newComment)
-        document.getElementById('comment-input').value = ''
+        if (inputText !== '') {
+            let commentsDiv = document.getElementById('list')
+            let newComment = document.createElement('li')
+            newComment.innerText = inputText
+            commentsDiv.append(newComment)
+            document.getElementById('comment-input').value = ''
+        }        
     })
     
     pauseButton.addEventListener('click', function(){
