@@ -37,7 +37,6 @@ function timerHandler() {
 
 };
 
-
 function likesHandler() {
     document.addEventListener("click", function(e) {
         let heartButton = document.querySelector("#heart");
