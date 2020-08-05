@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function(e){
+document.addEventListener('DOMContentLoaded', function(){
     //global variables
     const plusButton = document.getElementById('plus')
     const minusButton = document.getElementById('minus')
@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', function(e){
     const submitButton = document.getElementById('submit')
     const counter = document.getElementById('counter')
     const likesSpace = document.querySelector(`ul.likes`)
-    let currentInterval = setInterval(incrementCounterText, 1000);
     const incrementCounterText = () => {
         counter.innerText = parseInt(counter.innerText) + 1
     }
-    
+    let currentInterval = setInterval(incrementCounterText, 1000);
+
     //button events
     minusButton.addEventListener('click', function(){
         counter.innerText = parseInt(counter.innerText) - 1
@@ -22,19 +22,15 @@ document.addEventListener('DOMContentLoaded', function(e){
     })
 
     heartButton.addEventListener('click', function(){
-        let likeCounter = 1
         if (document.getElementById(counter.innerText)) {
-            
             let currentListItem = document.getElementById(counter.innerText)
             currentListItem.counter++
             currentListItem.innerText = `${counter.innerText} has been liked ${currentListItem.counter} time(s)`
-            console.log('this is running', currentListItem.counter)
         } else {
             const newListItem = document.createElement('li')
             newListItem.counter = 1
             newListItem.innerText = `${counter.innerText} has been liked ${newListItem.counter} time(s)`
             newListItem.id = counter.innerText
-            
             likesSpace.append(newListItem)
         }
     })
