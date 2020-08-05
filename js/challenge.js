@@ -16,6 +16,7 @@ document.addEventListener("click", function(e){
         let counter = parseInt(timer.innerText,10)
         counter += 1
         timer.innerText = counter
+
     } else if (e.target.matches("#heart")) {
 
         const currentTime = document.querySelector("#counter").innerText
@@ -29,15 +30,14 @@ document.addEventListener("click", function(e){
             } 
         }
 
-        // if (document.querySelector(`ul.likes > li#${currentTime}`).checkValidity === true) {
         if (exists === true) {
-                // const currentTimeString = currentTime.toString()
+                // increments bullet point element
                 const li = document.getElementById(`${currentTime}`)
                 let likes = parseInt(li.getAttribute('data-likes'),10)
                 likes += 1
                 li.setAttribute('data-likes',likes)
                 li.innerText = `${li.id} has been liked ${li.getAttribute('data-likes')} times`
-        } else {
+        } else { //makes new like bullet point element
                 const li = document.createElement("li")
                 li.id = currentTime
                 li.setAttribute('data-likes', 1)
